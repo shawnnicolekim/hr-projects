@@ -1,0 +1,47 @@
+body {
+  font-family: sans-serif, arial;
+}
+
+.userBar {
+  padding: 5px;
+  margin: 5px;
+}
+
+.searchBar {
+  padding: 5px;
+  margin: 5px;
+}
+
+.movieList {
+  position: absolute;
+  padding: 20px;
+  border: 3px solid blue;
+  margin: 10px;
+  width: 400px;
+  height: 800px;
+}
+
+.watched {
+  position: absolute;
+  bottom: 94%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.notWatched {
+  position: absolute;
+  left: 55%;
+  bottom: 94%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.movieListEntry {
+  padding: 20px;
+  border: 5px dashed blue;
+  margin: 10px;
+}
+
+.watchOrNot {
+  float: right;
+}

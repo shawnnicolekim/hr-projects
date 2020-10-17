@@ -1,0 +1,28 @@
+{
+  "name": "movie-list",
+  "version": "1.1.0",
+  "description": "Movie List",
+  "author": "Hack Reactor <curriculum.team@hackreactor.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "live-server",
+    "build": "webpack -d --watch"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "live-server": "^1.2.1",
+    "lodash": "^4.17.20",
+    "mysql": "^2.18.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "underscore": "^1.8.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}

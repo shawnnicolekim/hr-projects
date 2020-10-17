@@ -1,0 +1,65 @@
+body, html{
+  background: url("https://i.pinimg.com/originals/31/be/17/31be17e563ac66d77d8c566526ebb71b.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+}
+body{
+  margin: 0px;
+  background-color:#444;
+  font-size: 18px;
+}
+body, a:link, a:visited, a:active{
+  color: purple;
+}
+.title, .addDancerButton, .lineUpButton, .coupleButton{
+  padding:5px 12px;
+  float:right;
+  border: 1px purple solid;
+  background-color: whitesmoke;
+  color: purple;
+}
+.topbar{
+  height:32px;
+  background-color: purple;
+}
+.title{
+  background-color: #777;
+}
+.blink{
+  height: 75px;
+  width: 75px;
+  border-radius:10px;
+  position:absolute;
+}
+
+.bounce{
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  position: absolute;
+}
+
+.ghost{
+  height: 75px;
+  width: 75px;
+  border-radius:10px;
+  position:absolute;
+}
+
+.danceFloor{
+  position: absolute;
+  margin-top: 50px;
+  height: 75%;
+  width: 75%;
+}
+
+.hover {
+  height: 140px;
+  width: 140px;
+  position: absolute;
+}
+
+.hover:hover {
+  display: none;
+}
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <title>Twiddler</title>
+    <style>
+      body {
+        background-image: linear-gradient(120deg, #ea8685, #00cec9);
+      }
+
+      .mainTitle {
+        color: #ea8685;
+        background-color: #dfe6e9;
+        font-family: Verdana, Geneva, sans-serif;
+        border-style: double;
+        border-color: #00b894;
+        padding: 20px;
+        margin: auto auto;
+        width: 500px;
+        text-align: center;
+        border-radius: 25px;
+      }
+
+      #inputField {
+        height: 20px;
+        width: 99%;
+        padding: 5px;
+        margin: 5px auto;
+        text-align: center
+      }
+
+      #inputField:focus {
+        color: lightgray;
+      }
+
+      #submitBtn {
+        background-color: white;
+        margin: 4px auto;
+      }
+
+      #homeBtn {
+        background-color: white;
+        margin: -25px auto;
+        float: right;
+      }
+
+      .tweed {
+        color:#ea8685;
+        background-color: #dfe6e9;
+        font-family: Verdana, Geneva, sans-serif;
+        border-style: ridge;
+        border-color: #00b894;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 25px;
+      }
+
+      .username {
+        color:#00cec9;
+        font-weight: bold
+      }
+
+      .timeStamp {
+        font-size: x-small;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        color: darkgray;
+        text-align: right;
+      }
+
+    </style>
+  </head>
+  <body>
+    <script>
+
+      $(document).ready(function(){
+        var $body = $('body');
+
+        $body.prepend('<h1 class="mainTitle">Twiddler</h1>')
+
+        $('h1').after('<form class="inputTweed"></form>');
+        $('<input type="text" id="inputField" value="What\'s on your mind today?"><br>').appendTo('.inputTweed')
+        $('<input type="button" id="submitBtn" value="Submit Tweed"><br>').appendTo('.inputTweed')
+        $('<input type="button" id="homeBtn" value="Refresh Homepage"><br>').appendTo('.inputTweed');
+
+        $('<div class=tweedContainer></div').appendTo($body);
+
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $tweet = $('<div class=tweed></div>');
+          $tweet.html('<span class="username ' + tweet.user + '">@' + tweet.user + '</span>: ' + tweet.message + '<p class=timeStamp>' + tweet.created_at + '</p>');
+          $tweet.appendTo('.tweedContainer');
+          index -= 1;
+        }
+
+        $('.tweedContainer').on('click', '.username', function(event) {
+          $('#homeBtn').attr('value', 'Back To Homepage');
+
+          $('.tweedContainer').html('');
+
+          var username = event.currentTarget.classList[1];
+          var index = streams.users[username].length - 1;
+
+          while(index >= 0){
+            var tweet = streams.users[username][index];
+            var $tweet = $('<div class=tweed></div>');
+            $tweet.html('<span class="username ' + tweet.user + '">@' + tweet.user + '</span>: ' + tweet.message + '<p class=timeStamp>' + tweet.created_at + '</p>');
+            $tweet.appendTo('.tweedContainer');
+            index -= 1;
+          }
+        })
+
+          $('#homeBtn').on('click', function(event){
+            $('#homeBtn').attr('value', 'Refresh Homepage');
+
+            $('.tweedContainer').html('');
+
+            var index = streams.home.length - 1;
+              while(index >= 0){
+                var tweet = streams.home[index];
+                var $tweet = $('<div class=tweed></div>');
+                $tweet.html('<span class="username ' + tweet.user + '">@' + tweet.user + '</span>: ' + tweet.message + '<p class=timeStamp>' + tweet.created_at + '</p>');
+                $tweet.appendTo('.tweedContainer');
+                index -= 1;
+              }
+          })
+
+      });
+
+    </script>
+  </body>
+</html>
